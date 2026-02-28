@@ -357,9 +357,31 @@ Open Windows Terminal settings JSON (`Ctrl+Shift+,`) and update:
 
 ---
 
-## Step 10: Restart Windows Terminal
+## Step 10: Configure VS Code Terminal Font
 
-Close all Windows Terminal windows completely (including system tray) and reopen.
+VS Code uses its own terminal font settings, separate from Windows Terminal. Without this, Oh My Posh icons and powerline glyphs will appear as broken squares in the VS Code integrated terminal.
+
+Open VS Code Settings (`Ctrl + ,`), search for `terminal.integrated.fontFamily`, and set it to:
+
+```
+CaskaydiaCove NFM
+```
+
+Or add the following to your VS Code `settings.json` (`Ctrl + Shift + P` → "Preferences: Open User Settings (JSON)"):
+
+```json
+{
+    "terminal.integrated.fontFamily": "CaskaydiaCove NFM"
+}
+```
+
+> Note: If glyphs still appear broken, try `CaskaydiaCove NF` or `CaskaydiaCove NFP` instead.
+
+---
+
+## Step 11: Restart Windows Terminal and VS Code
+
+Close all Windows Terminal windows completely (including system tray) and restart VS Code.
 
 ---
 
@@ -391,6 +413,7 @@ Close all Windows Terminal windows completely (including system tray) and reopen
 | Problem | Fix |
 |---|---|
 | Icons show as squares/boxes | Make sure font is set to `CaskaydiaCove NFM` in Terminal settings |
+| Icons broken in VS Code terminal | Set `terminal.integrated.fontFamily` to `CaskaydiaCove NFM` in VS Code settings |
 | Oh My Posh not found in PowerShell | Use full path: `& "$env:LOCALAPPDATA\Programs\oh-my-posh.exe"` |
 | Script execution disabled | Run: `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
 | Spaces between powerline segments | Try `CaskaydiaCove NF` or `CaskaydiaCove NFP` font variants |
